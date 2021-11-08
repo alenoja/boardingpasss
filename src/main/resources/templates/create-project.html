@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <th:block th:include="fragments/header :: head"> </th:block>
+</head>
+
+<body>
+<div class="container">
+    <br>
+
+    <nav>  <th:block th:replace="fragments/nav :: nav"></th:block>   </nav>
+
+    <br>
+
+    <meta charset="UTF-8">
+    <title>New Passenger Form</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>Add New Passenger</h2>
+                <form th:action="@{/addDestination}" th:object="${destinationForm}" method="post">
+                    <ul th:if="${#fields.hasErrors('*')}">
+                        <li th:each="error : ${#fields.errors('*')}" th:text="${error}">error</li>
+                    </ul>
+                    <div class="form-row">
+
+                        <div class="col-md-6 form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" th:field="*{firstName}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" th:field="*{lastName}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" th:field="*{email}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control" th:field="*{phone}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Gender</label>
+                            <input type="text" class="form-control" th:field="*{gender}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Age</label>
+                            <input type="text" class="form-control" th:field="*{age}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Departure Date</label>
+                            <input type="date" class="form-control" th:field="*{travelDate}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Departure Time</label>
+                            <input type="time" class="form-control" th:field="*{departureTime}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Origin</label>
+                            <select class="form-control" th:field="*{origin}">
+                                <option value="">Choose...</option>
+                                <option value="Sunnyville">Sunnyville</option>
+                                <option value="Sugerland">Sugerland</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Destination</label>
+                            <select class="form-control" th:field="*{destination}">
+                                <option value="">Choose...</option>
+                                <option value="Huntington">Huntington</option>
+                                <option value="Maplewood">Maplewood</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+                    <button type="submit" class="login-btn btn btn-danger">Save Passenger</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

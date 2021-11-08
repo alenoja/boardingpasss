@@ -1,0 +1,29 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav  mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/list}">Lists</a>
+            </li>
+        </ul>
+    </div>
+
+            <div class="navbar-form navbar-right">
+
+                <div sec:authorize="isAuthenticated()">
+                    <a href="javascript: document.logoutForm.submit()" class="login-btn btn btn-danger">Logout</a>
+                    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                        <input hidden type="submit" value="Logout" />
+                    </form>
+                </div>
+
+    </div>
+
+
+</nav>
+

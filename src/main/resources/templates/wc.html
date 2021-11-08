@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="fragments/header :: head"> </th:block>
+</head>
+<body>
+<div class="container">
+    <br>
+
+    <nav>  <th:block th:replace="fragments/nav :: nav"></th:block>   </nav>
+
+    <br>
+
+    <h1>
+
+        Welcome to Boarding Pass Portal
+    </h1>
+    <img src="https://content.delta.com/content/www/us/en.damAssetRender.20200619T1544497300400.html/content/dam/delta_homepage_redesign/more/plane-wing.png">
+    <h4>To add passenger  <a th:href="@{/addDestinationPage}">click here</a></h4>
+    <br>
+
+
+
+
+    <footer>
+<th:block th:include="fragments/footer :: footer"></th:block>
+    </footer>
+
+</div>
+</body>
+</html>

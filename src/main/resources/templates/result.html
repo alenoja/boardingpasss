@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="fragments/header :: head"> </th:block>
+</head>
+<body>
+<div class="container">
+    <br>
+
+    <nav>  <th:block th:replace="fragments/nav :: nav"></th:block>   </nav>
+
+    <br>
+
+    <meta charset="UTF-8">
+    <title>Boarding Pass</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2>Boarding Pass</h2>
+            <div class="my-3">
+                <p><strong>Ticket ID:</strong>
+                <span th:text="${ticket.ticket_id}"></span></p>
+                <p><strong>First Name:</strong> <span th:text="${ticket.firstName}"></span></p>
+                <p><strong>Last Name:</strong> <span th:text="${ticket.lastName}"></span></p>
+                <p><strong>Email:</strong> <span th:text="${ticket.email}"></span></p>
+                <p><strong>Phone Number:</strong> <span th:text="${ticket.phone}"></span></p>
+                <p><strong>Gender:</strong> <span th:text="${ticket.gender}"></span></p>
+                <p><strong>Age:</strong> <span th:text="${ticket.age}"></span></p>
+                <p><strong>Departure Date:</strong> <span th:text="${ticket.travelDate}"></span></p>
+                <p><strong>Origin:</strong> <span th:text="${ticket.origin}"></span></p>
+                <p><strong>Destination:</strong> <span th:text="${ticket.destination}"></span></p>
+                <p><strong>ETA:</strong> <span th:text="${ticket.eta}"></span></p>
+                <p><strong>Departure Time:</strong> <span th:text="${ticket.departureTime}"></span></p>
+            </div>
+            <a class="login-btn btn btn-danger" th:href="@{/addDestinationPage}" role="button">Add new passenger</a>
+            <a class="login-btn btn btn-danger" role="button" onclick="printFunction()">Print</a>
+
+            <script>
+                function printFunction() {
+                    window.print();
+                }
+            </script>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
