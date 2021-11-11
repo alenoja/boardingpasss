@@ -2,6 +2,7 @@ package com.app.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -16,6 +17,8 @@ public class User {
     private String phone;
     private String gender;
     private Date dob;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Ticket> ticketList;
 
     public int getId() {
         return id;
@@ -67,5 +70,13 @@ public class User {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public List<Ticket> getTicketList() {
+        return ticketList;
+    }
+
+    public void setTicketList(List<Ticket> ticketList) {
+        this.ticketList = ticketList;
     }
 }
