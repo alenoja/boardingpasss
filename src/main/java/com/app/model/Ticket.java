@@ -16,6 +16,9 @@ public class Ticket {
     private String eta;
     private int purchaseDate;
     private int price;
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name="USER_ID")
+    private User user;
 
     public int getId() {
         return id;
@@ -75,6 +78,14 @@ public class Ticket {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
