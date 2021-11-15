@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example </title>
+</head>
+<body>
+
+<div class="form-group">
+    <label><a th:href="@{/login}">Back to Login</a></label>
+</div>
+
+<form th:action="@{/signup}" method="post">
+    <div id="error-msg" class="alert alert-danger" th:if="${signupError}">
+        <span th:text="${signupError}">Signup Error Message</span>
+    </div>
+    <div><label> First Name : <input type="text" name="firstName" placeholder="Enter First Name" /> </label></div>
+    <div><label> Last Name : <input type="text" name="lastName" placeholder="Enter Last Name" /> </label></div>
+    <div><label> Phone Number: <input type="text" name="phone" placeholder="Enter Phone Number" /> </label></div>
+    <div><label> Gender: <input type="text" name="gender" placeholder="Enter Gender" /> </label></div>
+    <div><label> Date of Birth: <input type="text" name="dob" placeholder="Enter DOB" /> </label></div>
+    <div><label> Email : <input type="text" name="email" placeholder="Enter Email" /> </label></div>
+    <div><label> Password: <input type="password" name="password" placeholder="Enter Passwords" /> </label></div>
+    <div><input type="submit" value="Sign Up"/></div>
+</form>
+</body>
+</html>

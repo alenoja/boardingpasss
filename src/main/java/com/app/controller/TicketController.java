@@ -11,7 +11,6 @@ import java.util.List;
 @CrossOrigin(origins = { "http://localhost:3000"})
 
 @RestController
-
 public class TicketController {
 
     private final TicketService service;
