@@ -22,37 +22,37 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>Add New Passenger</h2>
-                <form th:action="@{/addUser}" th:object="${userForm}" method="post">
+                <form th:action="@{/addDestination}" th:object="${destinationForm}" method="post">
                     <ul th:if="${#fields.hasErrors('*')}">
                         <li th:each="error : ${#fields.errors('*')}" th:text="${error}">error</li>
                     </ul>
                     <div class="form-row">
 
-                        <div class="col-md-6 form-group">
-                            <label>First Name</label>
-                            <input type="text" class="form-control" th:field="*{firstName}">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Last Name</label>
-                            <input type="text" class="form-control" th:field="*{lastName}">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Email</label>
-                            <input type="text" class="form-control" th:field="*{email}">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Phone Number</label>
-                            <input type="text" class="form-control" th:field="*{phone}">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Gender</label>
-                            <input type="text" class="form-control" th:field="*{gender}">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>DOB</label>
-                            <input type="text" class="form-control" th:field="*{dob}">
-                        </div>
 
+                        <div class="col-md-6 form-group">
+                            <label>Departure Date</label>
+                            <input type="date" class="form-control" th:field="*{travelDate}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Departure Time</label>
+                            <input type="time" class="form-control" th:field="*{departureTime}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Origin</label>
+                            <select class="form-control" th:field="*{origin}">
+                                <option value="">Choose...</option>
+                                <option value="Sunnyville">Sunnyville</option>
+                                <option value="Sugerland">Sugerland</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Destination</label>
+                            <select class="form-control" th:field="*{destination}">
+                                <option value="">Choose...</option>
+                                <option value="Huntington">Huntington</option>
+                                <option value="Maplewood">Maplewood</option>
+                            </select>
+                        </div>
 
 
                     </div>

@@ -1,5 +1,7 @@
 package com.app.controller;
 import com.app.model.Ticket;
+import com.app.model.User;
+import com.app.service.UserService;
 import com.app.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -40,19 +42,22 @@ public class TicketController {
         return model;
     }
 
+
     @GetMapping("/addDestinationPage")
     public ModelAndView addDestinationPage(){
         Ticket ticket = new Ticket();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("destinationForm",ticket);
-        modelAndView.setViewName("create-project");
+        modelAndView.setViewName("destination-form");
         return modelAndView;
     }
+
+
 
     @PostMapping("/addDestination")
     public ModelAndView addCustomer(@ModelAttribute Ticket ticket) {
 
-        service.saveTicket(ticket);
+        service.saveOrUpdate(ticket);
         return new ModelAndView("result");
     }
 
@@ -61,6 +66,26 @@ public class TicketController {
     public ModelAndView login() {
         return new ModelAndView("login");
     }
+
+    @GetMapping("/deleteTicket/{id}")
+    public ModelAndView deleteTicket(@PathVariable("id") int id){
+
+        service.deleteTicket(id);
+        return new ModelAndView("redirect:/list");
+    }
+
+    @GetMapping("/updateTicket/{id}")
+    public ModelAndView updateTicket(@PathVariable("id") int id) {
+
+        ModelAndView model = new ModelAndView();
+        Ticket ticket = service.getTicketById(id);
+        model.addObject("destinationForm", ticket);
+        model.setViewName("destination-form");
+
+        return model;
+    }
+
+
 
 
 

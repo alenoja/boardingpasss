@@ -25,7 +25,7 @@ public class TServiceImpl implements TicketService {
     }
 
     @Override
-    public void saveTicket(Ticket ticket) {
+    public void saveOrUpdate(Ticket ticket) {
 
         repository.save(ticket);
     }

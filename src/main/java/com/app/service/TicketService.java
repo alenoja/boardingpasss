@@ -9,7 +9,7 @@ public interface TicketService {
 
     Ticket getTicketById(int id);
 
-    void saveTicket(Ticket ticket);
+    void saveOrUpdate(Ticket ticket);
     void saveCustomer(Ticket ticket);
 
     void deleteTicket(int id);

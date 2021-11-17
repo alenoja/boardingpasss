@@ -1,9 +1,12 @@
 package com.app.service;
 
+import com.app.model.Ticket;
 import com.app.model.User;
 import com.app.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
@@ -24,5 +27,9 @@ public class UserService {
 
     public User getUser(Integer id){
         return userRepository.getOne(id);
+    }
+
+    public List<User> getAllUser() {
+        return userRepository.findAll();
     }
 }
